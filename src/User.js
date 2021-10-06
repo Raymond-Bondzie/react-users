@@ -1,15 +1,17 @@
-import React,{useState} from 'react'
+import React from 'react'
 import {Button} from 'react-bootstrap'
 
 
 function User(props) {
     const user = props.user;
     return(
-    <div>
-        <h1>{user.name}</h1>
-        <h1>{user.email}</h1>
-        <h1>{user.gen}</h1>
-
+    <div className="result">
+        <label className="lab">Name👇</label>
+        <span className="details">{user.name}</span>
+        <label className="lab">Email👇</label>
+        <span className="details">{user.email}</span>        
+        <label className="lab">Gen👇</label>
+        <span className="details">{user.gen}</span>
         <Button onClick={() => props.deleteUser(user.id)}>
             Delete
         </Button>
