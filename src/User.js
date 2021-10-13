@@ -1,20 +1,55 @@
-import React from 'react'
-import {Button} from 'react-bootstrap'
+import React,{useState} from 'react'
+import {Button,Modal} from 'react-bootstrap'
+import EditUser from './editUser';
 
 
 function User(props) {
     const user = props.user;
+
+    const [showModal , setShowModal] = useState(false)
+
+    function toggleModal() {
+        setShowModal(!showModal);
+    }
     return(
     <div className="result">
-        <label className="lab">Name👇</label>
+        <label className="lab">Name:</label>
         <span className="details">{user.name}</span>
-        <label className="lab">Email👇</label>
-        <span className="details">{user.email}</span>        
-        <label className="lab">Gen👇</label>
+        <br/>
+        <label className="lab">Email:</label>
+        <span className="details">{user.email}</span>
+        <br/>
+        <label className="lab">Gen:</label>
         <span className="details">{user.gen}</span>
-        <Button onClick={() => props.deleteUser(user.id)}>
+        <br/>
+
+        <Button variant="danger" onClick={() => props.deleteUser(user.id)}>
             Delete
         </Button>
+        <Button  onClick={() => toggleModal()}>
+            Edit
+        </Button>
+
+
+        <Modal show={showModal} onHide={() => toggleModal()}>
+        <Modal.Header closeButton>
+          <Modal.Title>Make Your change</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {/*Component to edit user*/}
+          <EditUser
+            user={user}
+            editUser={props.editUser}
+            toggleModal={toggleModal}
+          />
+        </Modal.Body>
+        
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => toggleModal()}>
+            Discard change
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
     )
 }

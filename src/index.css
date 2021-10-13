@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.form{
+/* .form{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +24,7 @@ code {
   border-radius: 70px;
   border-top: 20px solid black;
   border-right: 20px solid black;
-}
+} */
 
 .input{
   margin-bottom: 20px;
@@ -35,7 +35,7 @@ code {
   border-radius: 20px;
 }
 
-.result{
+/* .result{
   border: 2px solid greenyellow;
   display: flex;
   justify-content: center;
@@ -48,13 +48,14 @@ code {
   padding: 30px;
   border-top: 20px solid black;
   border-right: 20px solid black;
-}
+} */
 
 .details{
   color: blue;
   font-style: italic;
   letter-spacing: 2px;
   font-weight: bolder;
+  margin-left: 20px;
 }
 
 .lab{
