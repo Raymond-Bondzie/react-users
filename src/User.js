@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
 import {Button,Modal} from 'react-bootstrap'
 import EditUser from './editUser';
+import {connect} from 'react-redux'
+import { deleteUser } from './actions/userActions';
 
 
 function User(props) {
@@ -22,11 +24,12 @@ function User(props) {
         <label className="lab">Gen:</label>
         <span className="details">{user.gen}</span>
         <br/>
+        <br/>
 
         <Button variant="danger" onClick={() => props.deleteUser(user.id)}>
             Delete
         </Button>
-        <Button  onClick={() => toggleModal()}>
+        <Button className="editButton" onClick={() => toggleModal()}>
             Edit
         </Button>
 
@@ -39,13 +42,13 @@ function User(props) {
           {/*Component to edit user*/}
           <EditUser
             user={user}
-            editUser={props.editUser}
+            // editUser={props.editUser}
             toggleModal={toggleModal}
           />
         </Modal.Body>
         
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => toggleModal()}>
+          <Button variant="danger" onClick={() => toggleModal()}>
             Discard change
           </Button>
         </Modal.Footer>
@@ -54,4 +57,8 @@ function User(props) {
     )
 }
 
-export default User;
+const mapDispachToProps = {
+  deleteUser,
+}
+
+export default connect(null, mapDispachToProps) (User);

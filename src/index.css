@@ -33,33 +33,51 @@ code {
   height: 2.5rem;
   font-size: serif;
   border-radius: 20px;
+  margin-left: 10px;
 }
 
-/* .result{
-  border: 2px solid greenyellow;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  margin-left: 460px;
-  margin-right: 460px;
-  border-radius: 70px;
-  flex-direction: column;
+div.result{
+  margin-left: auto;
+    margin-right: auto;
+    width: 35em;
+  border: 1px solid;
   padding: 30px;
-  border-top: 20px solid black;
-  border-right: 20px solid black;
+  border-radius: 10px;
+  background-color: rgba(233, 250, 252, 0.829);
+  margin-top: 10px;
+  transition: 2s;
+}
+
+/* div.result:hover{
+  background-color: violet;
 } */
 
 .details{
-  color: blue;
+  color: black;
   font-style: italic;
-  letter-spacing: 2px;
-  font-weight: bolder;
-  margin-left: 20px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  margin-left: 10px;
+  align-items: center;
+  border-bottom: 1px dotted black;
+  background-color: white;
+  margin-top: 5px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 5px;
 }
 
 .lab{
-  font-weight: bolder;
+  font-weight: bold;
   align-items: left;
-  font-size: 30px;
+  font-size: 15px;
+}
+
+.lab:hover{
+  color: white;
+}
+
+  
+.editButton{
+  margin-left: 10px;
 }

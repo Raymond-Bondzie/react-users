@@ -1,5 +1,7 @@
 import React,{useState} from 'react'
 import {Form, Button} from 'react-bootstrap'
+import {connect} from 'react-redux'
+import { editUser } from './actions/userActions';
 
 
 function EditUser(props) {
@@ -28,7 +30,7 @@ function handleSubmit() {
         
         id: props.user.id
     };
-props.editUser(editedUser, props.user.id);
+props.editUser( props.user.id, editedUser);
 props.toggleModal();
 
 }
@@ -72,4 +74,9 @@ return (
 }
 
 
-export default EditUser;
+const mapDispachToProps = {
+  editUser,
+}
+
+
+export default connect(null, mapDispachToProps) (EditUser);
