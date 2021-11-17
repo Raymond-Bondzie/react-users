@@ -1,11 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
-import UserForm from './UserForm';
-import UserList from './UserList';
+import { BrowserRouter, Route } from "react-router-dom";
+// import UserForm from './UserForm';
+// import UserList from './UserList';
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {getAllUsers} from './actions/userActions'
 import {connect} from 'react-redux'
-
+import ProtectedRoute from './ProtectedRoute';
 
 
 function App(props) {
@@ -37,10 +41,15 @@ function App(props) {
     setUsers(u);
   }
   return (
-    <>
-    <UserForm />
-    <UserList  deleteUser={deleteUser} editUser={editUser} />
-    </>
+    // <>
+    // <UserForm />
+    // <UserList  deleteUser={deleteUser} editUser={editUser} />
+    // </>
+    <BrowserRouter>
+    <ProtectedRoute exact path="/" component={Home} />
+    <Route path="/login" component={Login} />
+    <Route path="/register" component={Register} />
+  </BrowserRouter>
   );
 }
 

@@ -26,7 +26,7 @@ console.log(props);
 
 const mapStateToProps = (state) => {
   return{
-    users: state.users,
+    users: state.users.users,
   }
 }
 
